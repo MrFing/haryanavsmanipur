@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haryana vs Manipur — Literacy Comparison</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --saffron:      #FF671F;
+  --india-green:  #046A38;
+  --navy:         #0B1740;
+  --gold:         #C8922A;
+  --parchment:    #F5EDD6;
+  --ink:          #1A1205;
+  --teal:         #1A6B72;
+  --teal-light:   #2A9BA5;
+  --rose:         #9B3A5A;
+  --haryana-blue: #1B4F8A;
+  --manipur-green:#1A6B3A;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: var(--ink);
+  color: var(--parchment);
+  min-height: 100vh;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: linear-gradient(135deg, var(--navy) 0%, #162050 60%, var(--navy) 100%);
+  border-bottom: 4px solid var(--gold);
+  padding: 40px 40px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    45deg, transparent, transparent 22px,
+    rgba(200,146,42,0.04) 22px, rgba(200,146,42,0.04) 23px
+  );
+}
+.masthead-stripe {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.stripe      { height: 6px; width: 110px; }
+.stripe-s    { background: var(--saffron); }
+.stripe-w    { background: rgba(255,255,255,0.85); }
+.stripe-g    { background: var(--india-green); }
+
+.masthead-badge {
+  display: inline-block;
+  background: rgba(200,146,42,0.15);
+  border: 1px solid rgba(200,146,42,0.4);
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  padding: 5px 18px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+  position: relative;
+}
+.masthead h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(26px, 5vw, 50px);
+  font-weight: 900;
+  color: var(--parchment);
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  position: relative;
+}
+.masthead h1 span { color: var(--gold); }
+.masthead-sub {
+  font-size: 15px;
+  color: rgba(245,237,214,0.6);
+  font-style: italic;
+  margin-top: 10px;
+  letter-spacing: 0.07em;
+  position: relative;
+}
+.masthead-icon {
+  font-size: 52px;
+  display: block;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 14px rgba(200,146,42,0.35));
+  position: relative;
+}
+
+/* state badge pills inside masthead */
+.masthead-states {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 18px;
+  position: relative;
+}
+.state-pill {
+  padding: 6px 22px;
+  border-radius: 24px;
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: white;
+}
+.pill-h { background: rgba(27,79,138,0.8); border: 1px solid #4A90D9; }
+.pill-m { background: rgba(26,107,58,0.8); border: 1px solid #5DBF7A; }
+
+/* ── INTRO SECTION ── */
+.intro-section {
+  background: linear-gradient(160deg, #0e1a3a 0%, #122048 100%);
+  padding: 56px 32px 52px;
+  position: relative;
+  overflow: hidden;
+}
+.intro-section::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; right: -80px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,146,42,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.intro-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(245,237,214,0.055);
+  border: 1px solid rgba(200,146,42,0.22);
+  border-left: 5px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 34px 40px;
+  line-height: 1.9;
+  font-size: 17px;
+  color: rgba(245,237,214,0.92);
+  position: relative;
+}
+.intro-inner::before {
+  content: '\201C';
+  font-family: 'Cinzel', serif;
+  font-size: 90px;
+  color: rgba(200,146,42,0.14);
+  position: absolute;
+  top: -16px; left: 14px;
+  line-height: 1;
+  pointer-events: none;
+}
+.intro-inner strong { color: var(--gold); font-weight: 600; }
+.intro-inner em     { color: #FF9A5C; font-style: normal; }
+
+/* ── MAIN CONTENT SECTION ── */
+.content-section {
+  background: var(--parchment);
+  color: var(--ink);
+  padding: 56px 32px 64px;
+}
+
+/* section headings */
+.sec-title {
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 42px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 1060px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sec-title:first-of-type { margin-top: 0; }
+.sec-title::before {
+  content: '';
+  display: inline-block;
+  width: 5px; height: 22px;
+  background: var(--saffron);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.sec-title .sec-icon { font-size: 20px; }
+
+/* description text block */
+.desc-block {
+  max-width: 1060px;
+  margin: 0 auto 12px;
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: #222;
+}
+.desc-block p { margin-bottom: 10px; }
+
+/* ── DATA TABLE ── */
+.tbl-wrap {
+  overflow-x: auto;
+  max-width: 1060px;
+  margin: 0 auto 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+}
+table.career-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 540px;
+}
+table.career-table thead tr { background: var(--navy); color: var(--parchment); }
+table.career-table thead th {
+  padding: 12px 16px;
+  font-family: 'Cinzel', serif;
+  font-size: 11.5px;
+  letter-spacing: 0.07em;
+  font-weight: 600;
+  text-align: left;
+}
+table.career-table thead th:not(:first-child) { text-align: center; }
+table.career-table tbody tr:nth-child(odd)  { background: #F0E8D0; }
+table.career-table tbody tr:nth-child(even) { background: var(--parchment); }
+table.career-table tbody tr:hover           { background: #E4D8B8; }
+table.career-table td {
+  padding: 11px 16px;
+  border-bottom: 1px solid #D8CCB0;
+  vertical-align: middle;
+  line-height: 1.5;
+}
+table.career-table td:first-child { font-weight: 600; color: var(--navy); }
+table.career-table td:not(:first-child) { text-align: center; }
+
+.diff-high { font-weight: 800; color: #C0392B; }
+.diff-low  { font-weight: 800; color: var(--manipur-green); }
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.badge-h  { background: #cce0f5; color: #1B4F8A; }
+.badge-m  { background: #c8edda; color: #1A6B3A; }
+.badge-gap-wide { background: #f8d7da; color: #721c24; }
+.badge-gap-narrow { background: #d4edda; color: #155724; }
+
+/* ── BAR CHART SECTION ── */
+.chart-wrapper {
+  max-width: 1060px;
+  margin: 0 auto 10px;
+  background: rgba(11,23,64,0.05);
+  border: 1px solid rgba(200,146,42,0.25);
+  border-radius: 10px;
+  padding: 28px 32px 22px;
+}
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.bar-group-label {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--navy);
+  margin-bottom: 14px;
+  text-align: center;
+}
+.bar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+.bar-label {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: #555;
+  width: 58px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.bar-track {
+  flex: 1;
+  background: #D8CCB0;
+  border-radius: 5px;
+  height: 28px;
+  position: relative;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 9px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: white;
+}
+.bar-male-h   { background: linear-gradient(90deg, #2B5FA0, #1B3F78); width: 84.06%; }
+.bar-female-h { background: linear-gradient(90deg, #7BAFD4, #2B5FA0); width: 65.94%; }
+.bar-male-m   { background: linear-gradient(90deg, #28884A, #1A5C32); width: 83.58%; }
+.bar-female-m { background: linear-gradient(90deg, #6EC991, #28884A); width: 70.26%; }
+
+.chart-legend {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 16px;
+  font-size: 12px;
+  color: #555;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.05em;
+}
+.legend-dot {
+  display: inline-block;
+  width: 12px; height: 12px;
+  border-radius: 3px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.dot-male-h   { background: #1B3F78; }
+.dot-female-h { background: #7BAFD4; }
+.dot-male-m   { background: #1A5C32; }
+.dot-female-m { background: #6EC991; }
+
+/* ── GENDER GAP PANEL ── */
+.gap-panel {
+  max-width: 1060px;
+  margin: 0 auto 10px;
+  background: rgba(200,146,42,0.07);
+  border: 1px solid rgba(200,146,42,0.3);
+  border-left: 5px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.gap-item { text-align: center; }
+.gap-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 38px;
+  font-weight: 500;
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.gap-num.red   { color: #C0392B; }
+.gap-num.green { color: var(--manipur-green); }
+.gap-label {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #555;
+}
+.gap-vs {
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: rgba(200,146,42,0.5);
+}
+.gap-insight {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  max-width: 220px;
+}
+.gap-insight strong { color: var(--manipur-green); }
+
+/* ── CARDS GRID ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  max-width: 1060px;
+  margin: 0 auto 10px;
+}
+.card {
+  background: linear-gradient(135deg, #EAF2F8, #D6EAF8);
+  border: 1px solid #B0CCE0;
+  border-radius: 10px;
+  padding: 20px 18px;
+  position: relative;
+  overflow: hidden;
+}
+.card.green  { background: linear-gradient(135deg,#E8F8EE,#C8EDD8); border-color: #80C8A0; }
+.card.amber  { background: linear-gradient(135deg,#FFF8E8,#FDEAC8); border-color: #D4A044; }
+.card.rose   { background: linear-gradient(135deg,#FAE8EE,#F2C8D4); border-color: #C07090; }
+.card.teal   { background: linear-gradient(135deg,#E8F6F8,#C8E8EE); border-color: #60A8B8; }
+.card.navy   { background: linear-gradient(135deg,#E8EAF6,#C8CCEC); border-color: #8090C8; }
+
+.card-icon  { font-size: 26px; display: block; margin-bottom: 8px; }
+.card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #334;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.card-body  { font-size: 13.5px; color: #333; line-height: 1.6; }
+.card-num   {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--navy);
+  display: block;
+  margin: 4px 0;
+}
+
+/* ── PROS/CONS TWO-COL ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 1060px;
+  margin: 0 auto 10px;
+}
+@media(max-width:680px){ .two-col { grid-template-columns: 1fr; } }
+
+.pros-box, .cons-box {
+  border-radius: 10px;
+  padding: 22px 24px;
+}
+.pros-box {
+  background: linear-gradient(135deg,#E8F8EE,#C8EDD8);
+  border: 1px solid #70B890;
+}
+.cons-box {
+  background: linear-gradient(135deg,#FDE8EC,#F5C8D0);
+  border: 1px solid #C07080;
+}
+.pros-box h3, .cons-box h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+.pros-box h3 { color: #1A6B3A; }
+.cons-box h3 { color: #8B1A2A; }
+.pros-box ul, .cons-box ul {
+  list-style: none;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #333;
+}
+.pros-box ul li::before { content: '✓  '; color: #1A6B3A; font-weight: 700; }
+.cons-box ul li::before { content: '✗  '; color: #8B1A2A; font-weight: 700; }
+.pros-box ul li, .cons-box ul li { margin-bottom: 6px; }
+
+/* ── EXPLANATION DARK BOX ── */
+.explanation-dark {
+  max-width: 1060px;
+  margin: 0 auto 10px;
+  background: linear-gradient(135deg, var(--navy) 0%, #1C2E5E 100%);
+  border: 1px solid rgba(200,146,42,0.3);
+  border-left: 5px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 34px 40px;
+  line-height: 1.9;
+  font-size: 15.5px;
+  color: rgba(245,237,214,0.92);
+  position: relative;
+  overflow: hidden;
+}
+.explanation-dark::before {
+  content: '✍';
+  font-size: 80px;
+  color: rgba(200,146,42,0.08);
+  position: absolute;
+  top: -10px; right: 20px;
+  line-height: 1;
+  pointer-events: none;
+}
+.explanation-dark strong { color: var(--gold); font-weight: 600; }
+.explanation-dark em     { color: #FF9A5C; font-style: normal; }
+.explanation-dark .exp-sec-title {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: rgba(200,146,42,0.7);
+  border-bottom: 1px solid rgba(200,146,42,0.2);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+/* ── CONCLUSION CARD ── */
+.conclusion-card {
+  max-width: 1060px;
+  margin: 0 auto 10px;
+  background: linear-gradient(135deg, #FFF8E8, #FDEAC8);
+  border: 1px solid #D4A044;
+  border-radius: 10px;
+  padding: 24px 32px;
+  text-align: center;
+}
+.conclusion-card .trophy { font-size: 40px; display: block; margin-bottom: 8px; }
+.conclusion-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.07em;
+  margin-bottom: 10px;
+}
+.conclusion-card p { font-size: 14.5px; color: #333; line-height: 1.7; }
+.conclusion-card p strong { color: var(--manipur-green); }
+
+/* ── FOOTER ── */
+.page-footer {
+  background: var(--navy);
+  text-align: center;
+  padding: 22px 24px;
+  font-size: 12px;
+  color: rgba(245,237,214,0.5);
+  border-top: 3px solid var(--gold);
+  font-style: italic;
+  line-height: 1.8;
+}
+.page-footer strong { color: rgba(245,237,214,0.75); font-style: normal; }
+.page-footer .credit {
+  margin-top: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  font-style: normal;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+}
+
+@media(max-width:700px){
+  .intro-inner { padding: 22px 20px; font-size: 15px; }
+  .content-section { padding: 40px 16px 48px; }
+  .masthead { padding: 30px 20px 24px; }
+  .chart-grid { grid-template-columns: 1fr; }
+  .gap-panel { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ MASTHEAD ══ -->
+<div class="masthead">
+  <div class="masthead-stripe">
+    <div class="stripe stripe-s"></div>
+    <div class="stripe stripe-w"></div>
+    <div class="stripe stripe-g"></div>
+  </div>
+  <div class="masthead-badge">SOCIAL STUDIES — RESEARCH PROJECT</div>
+  <span class="masthead-icon">📖</span>
+  <h1>HARYANA vs <span>MANIPUR</span></h1>
+  <div class="masthead-sub">A deep-dive comparison of literacy rates, gender gaps &amp; educational equity — Census of India, 2011</div>
+  <div class="masthead-states">
+    <div class="state-pill pill-h">📍 Haryana</div>
+    <div class="state-pill pill-m">📍 Manipur</div>
+  </div>
+</div>
+
+<!-- ══ INTRO ══ -->
+<div class="intro-section">
+  <div class="intro-inner">
+    Literacy is one of the most powerful indicators of a society's development. It determines economic opportunity, health outcomes, and the ability of citizens to participate in democracy. In India, literacy rates vary dramatically across states — shaped by geography, culture, infrastructure, and historical attitudes toward education. This project compares <strong>Haryana</strong>, a northern state known for agriculture and industrial growth, with <strong>Manipur</strong>, a northeastern state with a rich tribal heritage, to examine <em>who is more literate</em>, <em>which state treats men and women more equally</em>, and <em>why these differences exist</em>. The findings reveal that numbers alone rarely tell the full story — behind every percentage lies centuries of culture, policy, and human aspiration.
+  </div>
+</div>
+
+<!-- ══ MAIN CONTENT ══ -->
+<div class="content-section">
+
+  <!-- 1. DATA TABLE -->
+  <div class="sec-title"><span class="sec-icon">📊</span> Literacy Data Table</div>
+  <div class="desc-block">
+    <p>The table below presents male and female literacy percentages for both states as recorded in the Census of India, 2011, along with the gender gap (difference between male and female literacy).</p>
+  </div>
+  <div class="tbl-wrap">
+    <table class="career-table">
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>Male Literacy (%)</th>
+          <th>Female Literacy (%)</th>
+          <th>Overall Literacy (%)</th>
+          <th>Gender Gap (M − F)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>📍 Haryana</td>
+          <td><span class="badge badge-h">84.06%</span></td>
+          <td><span class="badge badge-h">65.94%</span></td>
+          <td><span class="badge badge-h">75.55%</span></td>
+          <td><span class="badge badge-gap-wide">18.12% ▲ Wider</span></td>
+        </tr>
+        <tr>
+          <td>📍 Manipur</td>
+          <td><span class="badge badge-m">83.58%</span></td>
+          <td><span class="badge badge-m">70.26%</span></td>
+          <td><span class="badge badge-m">76.94%</span></td>
+          <td><span class="badge badge-gap-narrow">13.32% ▼ Narrower</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 2. BAR GRAPH -->
+  <div class="sec-title"><span class="sec-icon">📈</span> Bar Graph — Male &amp; Female Literacy</div>
+  <div class="chart-wrapper">
+    <div class="chart-grid">
+
+      <!-- Haryana -->
+      <div>
+        <div class="bar-group-label">📍 HARYANA</div>
+        <div class="bar-row">
+          <div class="bar-label">Male</div>
+          <div class="bar-track">
+            <div class="bar-fill bar-male-h">84.06%</div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Female</div>
+          <div class="bar-track">
+            <div class="bar-fill bar-female-h">65.94%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Manipur -->
+      <div>
+        <div class="bar-group-label">📍 MANIPUR</div>
+        <div class="bar-row">
+          <div class="bar-label">Male</div>
+          <div class="bar-track">
+            <div class="bar-fill bar-male-m">83.58%</div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Female</div>
+          <div class="bar-track">
+            <div class="bar-fill bar-female-m">70.26%</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="chart-legend">
+      <span><span class="legend-dot dot-male-h"></span>Haryana Male</span>
+      <span><span class="legend-dot dot-female-h"></span>Haryana Female</span>
+      <span><span class="legend-dot dot-male-m"></span>Manipur Male</span>
+      <span><span class="legend-dot dot-female-m"></span>Manipur Female</span>
+    </div>
+  </div>
+
+  <!-- 3. GENDER GAP -->
+  <div class="sec-title"><span class="sec-icon">⚖️</span> Gender Gap (Male − Female Literacy)</div>
+  <div class="gap-panel">
+    <div class="gap-item">
+      <span class="gap-num red">18.12%</span>
+      <div class="gap-label">Haryana's Gender Gap</div>
+    </div>
+    <div class="gap-vs">vs</div>
+    <div class="gap-item">
+      <span class="gap-num green">13.32%</span>
+      <div class="gap-label">Manipur's Gender Gap</div>
+    </div>
+    <div class="gap-insight">
+      ✅ <strong>Manipur has a narrower gap</strong> — meaning women and men are closer to equal in literacy, reflecting stronger gender equality in education.
+    </div>
+  </div>
+
+  <!-- 4. KEY FINDINGS CARDS -->
+  <div class="sec-title"><span class="sec-icon">🔍</span> Key Findings</div>
+  <div class="cards-grid">
+    <div class="card teal">
+      <span class="card-icon">📚</span>
+      <div class="card-title">Overall Literacy Winner</div>
+      <span class="card-num">Manipur</span>
+      <div class="card-body">Manipur's overall literacy of 76.94% exceeds Haryana's 75.55%, despite being a smaller, less urbanised state.</div>
+    </div>
+    <div class="card green">
+      <span class="card-icon">👩‍🎓</span>
+      <div class="card-title">Higher Female Literacy</div>
+      <span class="card-num">Manipur</span>
+      <div class="card-body">Manipur's female literacy stands at 70.26% vs Haryana's 65.94% — a significant 4.32% advantage for women in Manipur.</div>
+    </div>
+    <div class="card amber">
+      <span class="card-icon">👨‍🎓</span>
+      <div class="card-title">Higher Male Literacy</div>
+      <span class="card-num">Haryana</span>
+      <div class="card-body">Haryana edges ahead slightly in male literacy at 84.06% vs Manipur's 83.58% — a narrow difference of just 0.48%.</div>
+    </div>
+    <div class="card rose">
+      <span class="card-icon">⚖️</span>
+      <div class="card-title">Better Gender Equality</div>
+      <span class="card-num">Manipur</span>
+      <div class="card-body">Manipur's gender gap of 13.32% is smaller than Haryana's 18.12%, showing a more balanced approach to education for both sexes.</div>
+    </div>
+    <div class="card navy">
+      <span class="card-icon">📉</span>
+      <div class="card-title">Haryana's Female Gap</div>
+      <span class="card-num">18.12%</span>
+      <div class="card-body">The large gap in Haryana reflects deep-rooted patriarchal attitudes, early marriages, and limited rural school access for girls.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🌿</span>
+      <div class="card-title">Manipur's Cultural Strength</div>
+      <span class="card-num">13.32%</span>
+      <div class="card-body">Northeastern culture traditionally values women's participation in trade and society, translating into better educational equity.</div>
+    </div>
+  </div>
+
+  <!-- 5. WHY THE GAP EXISTS — ADVANTAGES/CHALLENGES FORMAT -->
+  <div class="sec-title"><span class="sec-icon">📌</span> Why Does the Literacy Gap Exist?</div>
+  <div class="two-col">
+    <div class="pros-box">
+      <h3>✅ Why Manipur Fares Better</h3>
+      <ul>
+        <li>Northeastern culture has long valued women as active economic and social participants</li>
+        <li>Matrilineal traditions in some Manipuri communities empower women's education</li>
+        <li>Ima Keithel (Mothers' Market) — women's central role in trade reinforces value of female education</li>
+        <li>Stronger community-level support for girls attending school in rural areas</li>
+        <li>Smaller, more tight-knit communities where schools are more locally accessible</li>
+        <li>State government schemes focused on girls' education have shown greater uptake</li>
+      </ul>
+    </div>
+    <div class="cons-box">
+      <h3>✗ Why Haryana Struggles</h3>
+      <ul>
+        <li>Historically patriarchal society where female education was considered low priority</li>
+        <li>High rates of early marriage pulled girls out of school before completion</li>
+        <li>Son preference culture (skewed sex ratio) reflects broader undervaluation of girls</li>
+        <li>Limited secondary school access in rural and semi-urban areas for girls</li>
+        <li>Social norms restricting women's movement outside the home reduced school attendance</li>
+        <li>Economic focus on agriculture and industry historically bypassed female workforce education</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 6. EXPLANATION BOX -->
+  <div class="sec-title"><span class="sec-icon">✍️</span> Conclusion &amp; Analysis</div>
+  <div class="explanation-dark">
+    <div class="exp-sec-title">Explanation — Which State is Better &amp; Why</div>
+    <p>
+      The data clearly shows that <strong>Manipur is the stronger performer</strong> across nearly every literacy metric. While Haryana holds a marginal lead in male literacy (84.06% vs 83.58%), Manipur significantly outperforms it in <em>female literacy</em> (70.26% vs 65.94%), <em>overall literacy</em> (76.94% vs 75.55%), and most importantly, <em>gender equality</em> in education — with a gender gap of just 13.32% compared to Haryana's troubling 18.12%.
+    </p>
+    <br>
+    <p>
+      Haryana's wide gender gap is not accidental — it is the product of a deeply patriarchal social structure that has historically prioritised male education and workforce participation. Girls in rural Haryana have long faced early marriage, mobility restrictions, and limited access to secondary schools. The skewed sex ratio of 879 females per 1,000 males (2011 Census) is a direct symptom of the same cultural attitudes that suppress female literacy.
+    </p>
+    <br>
+    <p>
+      Manipur's advantage stems from a fundamentally different cultural tradition. Northeastern communities tend to value women's active participation in public life — most visibly in the famous <strong>Ima Keithel</strong>, the world's largest all-women market. This cultural respect for women's agency extends naturally into valuing their education. The result is a society where girls are more likely to complete schooling and achieve literacy.
+    </p>
+    <br>
+    <p>
+      In conclusion: <strong>Manipur is the better-performing state</strong> — it leads in overall literacy, female literacy, and gender equity in education. It stands as a powerful example that <em>cultural attitude toward women is often a stronger predictor of educational equality than economic development alone.</em>
+    </p>
+  </div>
+
+  <!-- 7. CONCLUSION HIGHLIGHT -->
+  <div class="conclusion-card">
+    <span class="trophy">🏆</span>
+    <h3>Final Verdict</h3>
+    <p>
+      <strong>Manipur wins</strong> — with a higher overall literacy rate of 76.94%, higher female literacy of 70.26%, and a smaller gender gap of 13.32%.
+      It demonstrates that cultural respect for women's education can drive equity even in less economically developed states.
+      Haryana must urgently address its 18.12% gender literacy gap through stronger policy, rural school infrastructure, and cultural change.
+    </p>
+  </div>
+
+</div><!-- end content-section -->
+
+<!-- ══ FOOTER ══ -->
+<div class="page-footer">
+  <strong>Sources &amp; References:</strong><br>
+  Census of India, 2011 — Literacy Rate Data by State &amp; Gender &nbsp;|&nbsp;
+  Office of the Registrar General &amp; Census Commissioner, India (censusindia.gov.in) &nbsp;|&nbsp;
+  National Statistical Office (NSO), Government of India &nbsp;|&nbsp;
+  Ministry of Education, Government of India — Annual Report 2011–12 &nbsp;|&nbsp;
+  Directorate of Census Operations, Haryana &amp; Manipur &nbsp;|&nbsp;
+  India Brand Equity Foundation (IBEF) — State Profiles: Haryana &amp; Manipur &nbsp;|&nbsp;
+  Socio Economic and Caste Census (SECC), 2011
+  <div class="credit">Research &amp; Presentation by Aarav Singh</div>
+</div>
+
+</body>
+</html>
