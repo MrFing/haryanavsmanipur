@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haryana vs Manipur – Literacy Comparison</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .a3-sheet {
+    width: 1123px;
+    min-height: 1587px;
+    background: white;
+    padding: 48px 52px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* decorative top bar */
+  .top-bar {
+    height: 10px;
+    background: linear-gradient(90deg, #1a3c6e, #2e86c1, #28b463, #f39c12);
+    border-radius: 4px;
+    margin-bottom: 28px;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .header-left h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a3c6e;
+    line-height: 1.2;
+  }
+  .header-left .subtitle {
+    font-size: 13px;
+    color: #555;
+    margin-top: 4px;
+  }
+  .header-right {
+    display: flex;
+    gap: 12px;
+  }
+  .state-badge {
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+  }
+  .badge-h { background: #1a3c6e; }
+  .badge-m { background: #28b463; }
+
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #888;
+    margin-bottom: 10px;
+    border-left: 4px solid #2e86c1;
+    padding-left: 8px;
+  }
+
+  /* DATA TABLE */
+  .data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+  .data-table thead tr {
+    background: #1a3c6e;
+    color: white;
+  }
+  .data-table th {
+    padding: 13px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .data-table th:first-child { text-align: left; }
+  .data-table tbody tr:nth-child(odd) { background: #eaf4fd; }
+  .data-table tbody tr:nth-child(even) { background: #f8fbff; }
+  .data-table td {
+    padding: 14px 18px;
+    font-size: 14px;
+    text-align: center;
+    color: #222;
+  }
+  .data-table td:first-child { text-align: left; font-weight: 700; color: #1a3c6e; }
+  .diff-cell {
+    font-weight: 800;
+    color: #e74c3c;
+  }
+  .diff-better { color: #28b463 !important; }
+
+  /* BAR CHART */
+  .chart-section {
+    margin-bottom: 30px;
+  }
+  .chart-wrapper {
+    background: #f7fbff;
+    border-radius: 12px;
+    padding: 24px 28px 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .chart-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .bar-group-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+  }
+  .bar-label {
+    font-size: 11.5px;
+    color: #444;
+    width: 52px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .bar-track {
+    flex: 1;
+    background: #e0eaf3;
+    border-radius: 6px;
+    height: 26px;
+    position: relative;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    transition: width 0.5s;
+  }
+  .bar-male-h  { background: linear-gradient(90deg, #2e86c1, #1a3c6e); width: 84.06%; }
+  .bar-female-h{ background: linear-gradient(90deg, #85c1e9, #2e86c1); width: 65.94%; }
+  .bar-male-m  { background: linear-gradient(90deg, #28b463, #1d8348); width: 83.58%; }
+  .bar-female-m{ background: linear-gradient(90deg, #82e0aa, #28b463); width: 70.26%; }
+
+  .chart-legend {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-top: 14px;
+    font-size: 11.5px;
+    color: #555;
+  }
+  .legend-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  .dot-m { background: #1a3c6e; }
+  .dot-f { background: #85c1e9; }
+
+  /* KEY FINDINGS */
+  .findings-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .finding-card {
+    border-radius: 12px;
+    padding: 18px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .finding-card.blue { background: #eaf4fd; border-left: 5px solid #2e86c1; }
+  .finding-card.green { background: #eafaf1; border-left: 5px solid #28b463; }
+  .finding-card .finding-icon { font-size: 24px; margin-bottom: 6px; }
+  .finding-card h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #777; margin-bottom: 4px; }
+  .finding-card p { font-size: 13.5px; color: #222; font-weight: 500; line-height: 1.4; }
+  .finding-card .winner { font-size: 16px; font-weight: 800; color: #1a3c6e; }
+  .finding-card.green .winner { color: #1d8348; }
+
+  /* GAP VISUAL */
+  .gap-section {
+    background: #fff8e1;
+    border-radius: 12px;
+    padding: 16px 22px;
+    margin-bottom: 28px;
+    border-left: 5px solid #f39c12;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .gap-item { text-align: center; }
+  .gap-item .gap-num { font-size: 30px; font-weight: 800; }
+  .gap-item .gap-num.red { color: #e74c3c; }
+  .gap-item .gap-num.green { color: #28b463; }
+  .gap-item .gap-label { font-size: 12px; color: #555; }
+  .gap-divider { font-size: 28px; color: #ccc; }
+
+  /* EXPLANATION */
+  .explanation-box {
+    background: linear-gradient(135deg, #1a3c6e 0%, #2e86c1 100%);
+    border-radius: 14px;
+    padding: 22px 28px;
+    color: white;
+    margin-bottom: 20px;
+  }
+  .explanation-box .section-title { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.5); }
+  .explanation-box p { font-size: 13.5px; line-height: 1.75; color: rgba(255,255,255,0.95); }
+
+  /* SOURCE */
+  .source-bar {
+    text-align: center;
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+    padding-top: 14px;
+  }
+
+  /* decorative circles */
+  .deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.04;
+    background: #1a3c6e;
+  }
+  .deco1 { width: 280px; height: 280px; top: -80px; right: -80px; }
+  .deco2 { width: 180px; height: 180px; bottom: 60px; left: -60px; background: #28b463; opacity: 0.05; }
+</style>
+</head>
+<body>
+<div class="a3-sheet">
+  <div class="deco-circle deco1"></div>
+  <div class="deco-circle deco2"></div>
+
+  <div class="top-bar"></div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <h1>Haryana vs Manipur<br>Literacy Comparison</h1>
+      <div class="subtitle">Social Studies Project &nbsp;|&nbsp; Source: Census of India, 2011</div>
+    </div>
+    <div class="header-right">
+      <div class="state-badge badge-h">📍 Haryana</div>
+      <div class="state-badge badge-m">📍 Manipur</div>
+    </div>
+  </div>
+
+  <!-- TABLE -->
+  <div class="section-title">① Data Table</div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>State</th>
+        <th>Male Literacy (%)</th>
+        <th>Female Literacy (%)</th>
+        <th>Difference (M − F)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Haryana</td>
+        <td>84.06%</td>
+        <td>65.94%</td>
+        <td class="diff-cell">18.12%</td>
+      </tr>
+      <tr>
+        <td>Manipur</td>
+        <td>83.58%</td>
+        <td>70.26%</td>
+        <td class="diff-cell diff-better">13.32%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- BAR CHART -->
+  <div class="chart-section">
+    <div class="section-title">② Bar Graph</div>
+    <div class="chart-wrapper">
+      <div class="chart-grid">
+
+        <!-- Haryana bars -->
+        <div>
+          <div class="bar-group-label">📍 Haryana</div>
+          <div class="bar-row">
+            <div class="bar-label">Male</div>
+            <div class="bar-track">
+              <div class="bar-fill bar-male-h">84.06%</div>
+            </div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Female</div>
+            <div class="bar-track">
+              <div class="bar-fill bar-female-h">65.94%</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Manipur bars -->
+        <div>
+          <div class="bar-group-label">📍 Manipur</div>
+          <div class="bar-row">
+            <div class="bar-label">Male</div>
+            <div class="bar-track">
+              <div class="bar-fill bar-male-m">83.58%</div>
+            </div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Female</div>
+            <div class="bar-track">
+              <div class="bar-fill bar-female-m">70.26%</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="chart-legend">
+        <span><span class="legend-dot dot-m"></span> Male</span>
+        <span><span class="legend-dot dot-f"></span> Female</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GENDER GAP VISUAL -->
+  <div class="section-title">③ Gender Gap (Male − Female)</div>
+  <div class="gap-section">
+    <div class="gap-item">
+      <div class="gap-num red">18.12%</div>
+      <div class="gap-label">Haryana's Gender Gap</div>
+    </div>
+    <div class="gap-divider">vs</div>
+    <div class="gap-item">
+      <div class="gap-num green">13.32%</div>
+      <div class="gap-label">Manipur's Gender Gap</div>
+    </div>
+    <div class="gap-item" style="text-align:left; max-width:200px;">
+      <div style="font-size:13px; color:#666; line-height:1.5;">✅ <strong>Manipur</strong> has a smaller gap, meaning <strong>better gender equality</strong> in literacy.</div>
+    </div>
+  </div>
+
+  <!-- KEY FINDINGS -->
+  <div class="section-title">④ Key Findings</div>
+  <div class="findings-row">
+    <div class="finding-card blue">
+      <div class="finding-icon">📚</div>
+      <h3>Which state has higher literacy?</h3>
+      <p class="winner">Manipur</p>
+      <p>Overall literacy: <strong>76.94%</strong> vs Haryana's <strong>75.55%</strong>. Female literacy in Manipur (70.26%) is significantly higher than Haryana (65.94%).</p>
+    </div>
+    <div class="finding-card green">
+      <div class="finding-icon">⚖️</div>
+      <h3>Which has better gender equality?</h3>
+      <p class="winner">Manipur</p>
+      <p>Gender gap of only <strong>13.32%</strong> compared to Haryana's <strong>18.12%</strong>. Northeastern culture supports women's education more strongly.</p>
+    </div>
+  </div>
+
+  <!-- EXPLANATION -->
+  <div class="explanation-box">
+    <div class="section-title">⑤ Explanation (Why is there a Literacy Gap? Which State is Better?)</div>
+    <p>
+      Haryana has a much larger literacy gap (18.12%) between males and females compared to Manipur (13.32%).
+      This is because Haryana has historically had a patriarchal social structure, where female education was not
+      prioritised — girls were often married early, kept at home, or considered less important to educate.
+      Access to schools in rural Haryana was also limited. Manipur, a northeastern state, has a more progressive
+      and inclusive cultural tradition that values women's participation in society, resulting in better female
+      literacy. Overall, <strong>Manipur is the better state</strong> — it leads in overall literacy, female literacy,
+      and gender equality, making it a stronger example of inclusive education in India.
+    </p>
+  </div>
+
+  <div class="source-bar">
+    Data Source: Census of India, 2011 &nbsp;|&nbsp; Prepared by: Aarav Singh &nbsp;|&nbsp; Class: VIII-E &nbsp;|&nbsp; Roll No: 1
+  </div>
+</div>
+</body>
+</html>
